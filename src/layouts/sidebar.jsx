@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { CircleUser, Menu, Package2 } from "lucide-react";
+import { CircleUser, Menu, Package2, UserPlus } from "lucide-react";
 import { NavLink, Outlet } from "react-router-dom";
 import { navItems } from "../App";
 
@@ -151,5 +151,14 @@ const SidebarNavLink = ({ to, children }) => (
     {children}
   </NavLink>
 );
+
+const navItems = [
+  // existing nav items
+  {
+    title: "Register",
+    to: "/register",
+    icon: <UserPlus className="h-4 w-4" />,
+  },
+];
 
 export default Layout;
