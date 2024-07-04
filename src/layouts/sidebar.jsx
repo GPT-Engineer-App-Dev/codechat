@@ -20,12 +20,25 @@ const Layout = () => {
       <div className="flex flex-col">
         <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
           <MobileSidebar />
-          <div className="w-full flex-1">{/* Add nav bar content here! */}</div>
-          <UserDropdown />
+          <div className="w-full flex-1 flex items-center justify-end gap-4">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="border rounded px-2 py-1"
+            />
+            <UserDropdown />
+          </div>
         </header>
         <main className="flex-grow p-4 overflow-auto">
           <Outlet />
         </main>
+        <footer className="border-t p-4 text-center">
+          <nav className="flex justify-center space-x-4">
+            <NavLink to="/privacy-policy">Privacy Policy</NavLink>
+            <NavLink to="/terms-of-service">Terms of Service</NavLink>
+            <NavLink to="/contact">Contact Us</NavLink>
+          </nav>
+        </footer>
       </div>
     </div>
   );
@@ -49,6 +62,31 @@ const Sidebar = () => (
             </SidebarNavLink>
           ))}
         </nav>
+        <div className="p-4">
+          <h2 className="text-lg font-semibold">Recent Posts</h2>
+          <ul className="space-y-2">
+            <li>
+              <NavLink to="/post/1" className="text-muted-foreground hover:text-primary">
+                How to learn React?
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/post/2" className="text-muted-foreground hover:text-primary">
+                Best practices for Node.js
+              </NavLink>
+            </li>
+            {/* Add more recent posts here */}
+          </ul>
+        </div>
+        <div className="p-4">
+          <h2 className="text-lg font-semibold">Popular Tags</h2>
+          <div className="flex flex-wrap gap-2">
+            <Button variant="outline" size="sm">React</Button>
+            <Button variant="outline" size="sm">Node.js</Button>
+            <Button variant="outline" size="sm">JavaScript</Button>
+            {/* Add more tags here */}
+          </div>
+        </div>
       </div>
     </div>
   </div>
